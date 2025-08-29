@@ -1,20 +1,20 @@
-🦷 Tooth Detection Using YOLO
-📌 Project Overview
+**🦷 Tooth Detection Using YOLO
+📌 Project Overview**
 
 This project focuses on automatic tooth detection and localization using the YOLO (You Only Look Once) object detection framework.
 Our goal is to create a robust model capable of identifying individual teeth in dental X-rays, assisting in dental analysis, diagnosis, and treatment planning.
 
-📂 Dataset
-
+**📂 Dataset
+**
 Source: Custom dental X-ray dataset.
 
 Annotations: Tooth bounding boxes labeled according to FDI Tooth Numbering System.
 
 Data Split:
 
-70% → Training
+80% → Training
 
-20% → Validation
+10% → Validation
 
 10% → Testing
 
@@ -22,24 +22,15 @@ The dataset was preprocessed, rectified, and structured into train/, val/, and t
 
 ⚙️ Model Training
 
-Framework: YOLOv8 / YOLO11
+Framework: YOLOv8
 
 Hardware: Kaggle GPU
 
 Training Command:
 
-yolo detect train data=data.yaml model=yolov8n.pt epochs=100 imgsz=640
+yolo detect train data=data.yaml model=yolov8n.pt epochs=50 imgsz=640
 
-
-Optimization:
-
-Image augmentation (flip, scale, brightness)
-
-Hyperparameter tuning
-
-Rectification of annotation errors
-
-The model was trained on 100 epochs with a batch size of 16, achieving stable convergence.
+The model was trained on 50 epochs with a batch size of 16, achieving stable convergence.
 
 📊 Model Evaluation
 
