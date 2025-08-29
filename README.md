@@ -10,7 +10,83 @@ Source: Custom dental X-ray dataset.
 
 Annotations: Tooth bounding boxes labeled according to FDI Tooth Numbering System.
 
-Data Split:
+**🏷️ Label Validation & Rectification
+**
+
+During dataset validation, some annotation files contained BAD_LINE errors (not in the expected YOLO 5-column format: class x_center y_center width height).
+To ensure compatibility with YOLOv8, the labels were checked, corrected, and saved back.
+
+**🔎 Steps Performed:**
+
+Checked error lines flagged in label_validation_report.csv.
+
+Converted polygons → bounding boxes using the formulas:
+
+**x_center = (xmin + xmax) / 2
+
+y_center = (ymin + ymax) / 2
+
+width = xmax - xmin
+
+height = ymax - ymin
+**
+Normalized values to [0,1] relative to image width/height.
+
+Removed unfixable lines (extra/missing values).
+
+Re-saved corrected .txt files into the dataset directory.
+
+**Fixes:
+**
+1) File: cate2-00029... (original polygon line → fixed YOLO)
+
+Polygon → bbox:
+
+xmin = 0.160156, ymin = 0.568359, xmax = 0.250000, ymax = 0.741211
+
+Converted to YOLO (class 5):
+
+5 0.205078 0.654785 0.089844 0.172852
+
+(center_x=0.205078, center_y=0.654785, width=0.089844, height=0.172852)
+
+2) File: cate2-00109... (line 31)
+
+Polygon → bbox:
+
+xmin=0.616365, ymin=0.387109, xmax=0.629297, ymax=0.485996
+
+YOLO (class 17):
+
+17 0.622831 0.436553 0.012932 0.098886
+
+(center_x=0.622831, center_y=0.436553, width=0.012932, height=0.098886)
+
+3) File: cate2-00109... (line 32)
+
+Polygon → bbox:
+
+xmin=0.602522, ymin=0.526697, xmax=0.611042, ymax=0.579906
+
+YOLO (class 17):
+
+17 0.606782 0.553302 0.008521 0.053210
+
+(center_x=0.606782, center_y=0.553302, width=0.008521, height=0.053210)
+
+4) File: cate5-00030... (line 1)
+
+Polygon → bbox:
+
+xmin=0.104348, ymin=0.486957, xmax=0.186957, ymax=0.640217
+
+YOLO (class 31):
+
+31 0.145652 0.563587 0.082609 0.153261
+
+(center_x=0.145652, center_y=0.563587, width=0.082609, height=0.153261)
+
+**Data Split:**
 
 80% → Training
 
@@ -31,9 +107,9 @@ Training Command:
 yolo detect train data=data.yaml model=yolov8n.pt epochs=50 imgsz=640
 
 The model was trained on 50 epochs with a batch size of 16, achieving stable convergence.
-
+**
 📊 Model Evaluation
-
+**
 After training, the model was tested on the test split to evaluate performance.
 Evaluation metrics included:
 
@@ -59,7 +135,8 @@ mAP@0.5:0.95: 0.83
 
 📌 These results show that the model generalizes well across unseen data.
 
-📷 Results & Visualizations
+**📷 Results & Visualizations**
+
 1. Confusion Matrix
 <img width="3000" height="2250" alt="confusion_matrix" src="https://github.com/user-attachments/assets/84781e9c-2161-4e19-a3dc-3c4f40632a30" />
 
@@ -86,8 +163,8 @@ Lable:![val_batch2_labels](https://github.com/user-attachments/assets/e4821e65-4
 Prediction:![val_batch2_pred](https://github.com/user-attachments/assets/4a02eb3e-bbaf-401e-810f-3f118fc53881)
 
 
-🚀 Usage
-Inference
+**🚀 Usage
+Inference**
 
 To run detection on new images:
 
@@ -102,8 +179,8 @@ yolo detect val model=best.pt data=data.yaml
 Testing
 yolo detect test model=best.pt data=data.yaml
 
-📌 Key Contributions
-
+**📌 Key Contributions
+**
 Curated and rectified a high-quality dental X-ray dataset.
 
 Trained and evaluated a YOLO-based model for tooth detection.
@@ -111,16 +188,16 @@ Trained and evaluated a YOLO-based model for tooth detection.
 Achieved strong performance metrics (mAP > 0.9).
 
 Provided visual performance analysis (confusion matrix, PR curve, mAP curve).
-
+**
 🔮 Future Work
-
+**
 Tooth classification by type (incisors, canines, premolars, molars).
 
 Detection of dental pathologies (caries, root canal, fillings).
 
 Integration into a clinical decision support system for dentists.
 
-🙌 Acknowledgements
+**🙌 Acknowledgements**
 
 Dataset annotation & preprocessing team.
 
