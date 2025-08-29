@@ -79,7 +79,8 @@ mAP@0.5:0.95: 0.83
 <img width="2250" height="1500" alt="BoxF1_curve" src="https://github.com/user-attachments/assets/c5eb41a6-d7fe-4ca7-ba79-2b8b5382e9c3" />
 
 
-4. Example Predictions
+4. Example Predictions:
+
 Lable: ![val_batch0_labels](https://github.com/user-attachments/assets/38672a12-cdd7-41a6-a1d0-21acdd2ab426)
 
 Prediction: ![val_batch0_pred](https://github.com/user-attachments/assets/970e6c2d-e885-4ac1-a716-7ee2ba6ad792)
