@@ -47,8 +47,10 @@ After training, the model was tested on the test split to evaluate performance.
 Evaluation metrics included:
 
 Precision (P)
+<img width="2250" height="1500" alt="BoxP_curve" src="https://github.com/user-attachments/assets/b515e886-6eac-49bc-a84a-221c9a35494f" />
 
 Recall (R)
+<img width="2250" height="1500" alt="BoxR_curve" src="https://github.com/user-attachments/assets/f90786ad-eb70-47f0-9e6b-c9b644f4aea0" />
 
 mAP@0.5 (Mean Average Precision at IoU 0.5)
 
@@ -68,12 +70,29 @@ mAP@0.5:0.95: 0.83
 
 📷 Results & Visualizations
 1. Confusion Matrix
+<img width="3000" height="2250" alt="confusion_matrix" src="https://github.com/user-attachments/assets/84781e9c-2161-4e19-a3dc-3c4f40632a30" />
 
 2. PR Curve (Precision-Recall Curve)
+<img width="2250" height="1500" alt="BoxPR_curve" src="https://github.com/user-attachments/assets/7e4f07ee-90cb-405c-bf75-599774ffce2a" />
 
 3. mAP Curve
+<img width="2250" height="1500" alt="BoxF1_curve" src="https://github.com/user-attachments/assets/c5eb41a6-d7fe-4ca7-ba79-2b8b5382e9c3" />
+
 
 4. Example Predictions
+Lable: ![val_batch0_labels](https://github.com/user-attachments/assets/38672a12-cdd7-41a6-a1d0-21acdd2ab426)
+
+Prediction: ![val_batch0_pred](https://github.com/user-attachments/assets/970e6c2d-e885-4ac1-a716-7ee2ba6ad792)
+
+Lable:![val_batch1_labels](https://github.com/user-attachments/assets/5cbd0689-5441-4899-aaea-1bd3fb6567e5)
+
+Prediction:![val_batch1_pred](https://github.com/user-attachments/assets/3dc9655a-90ee-4b2b-939d-e6b68fe21ceb)
+
+
+Lable:![val_batch2_labels](https://github.com/user-attachments/assets/e4821e65-416b-459c-987e-37db691fb86b)
+
+Prediction:![val_batch2_pred](https://github.com/user-attachments/assets/4a02eb3e-bbaf-401e-810f-3f118fc53881)
+
 
 🚀 Usage
 Inference
