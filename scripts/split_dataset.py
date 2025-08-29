@@ -1,16 +1,13 @@
 import os, shutil, random
 from pathlib import Path
 
-# set paths
-images_dir = Path(r"E:\Assignment\images")   # folder with all .jpg
-labels_dir = Path(r"E:\Assignment\labels")   # folder with all .txt
+images_dir = Path(r"E:\Assignment\images")  
+labels_dir = Path(r"E:\Assignment\labels")   
 out_dir = Path("dataset_split")
 
-# read all jpg images and find label pairs
 images = [f for f in images_dir.glob("*.jpg") if (labels_dir / (f.stem + ".txt")).exists()]
 random.shuffle(images)
 
-# split sizes
 n = len(images)
 train_split = int(0.8 * n)
 val_split = int(0.1 * n)
@@ -21,7 +18,6 @@ splits = {
     "test": images[train_split+val_split:]
 }
 
-# copy files
 for split, files in splits.items():
     img_out = out_dir / split / "images"
     lbl_out = out_dir / split / "labels"
