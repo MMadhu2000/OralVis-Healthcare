@@ -69,19 +69,11 @@ mAP@0.5:0.95: 0.83
 📷 Results & Visualizations
 1. Confusion Matrix
 
-(Insert confusion matrix image here)
-
 2. PR Curve (Precision-Recall Curve)
-
-(Insert PR Curve image here)
 
 3. mAP Curve
 
-(Insert mAP curve image here)
-
 4. Example Predictions
-
-(Insert prediction results from test set here — before/after images)
 
 🚀 Usage
 Inference
