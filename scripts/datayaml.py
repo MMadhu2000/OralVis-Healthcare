@@ -1,11 +1,9 @@
 import os
 import yaml
 
-# Paths to your dataset
 train_path = r"E:\Assignment\dataset_split\train"
 val_path = r"E:\Assignment\dataset_split\val"
 
-# Your classes (update as per your project)
 classes = [
     "Tooth_11", "Tooth_12", "Tooth_13", "Tooth_14", "Tooth_15", "Tooth_16", "Tooth_17", "Tooth_18",
     "Tooth_21", "Tooth_22", "Tooth_23", "Tooth_24", "Tooth_25", "Tooth_26", "Tooth_27", "Tooth_28",
@@ -13,7 +11,6 @@ classes = [
     "Tooth_41", "Tooth_42", "Tooth_43", "Tooth_44", "Tooth_45", "Tooth_46", "Tooth_47", "Tooth_48"
 ]
 
-# Create yaml dict
 data_yaml = {
     'train': train_path,
     'val': val_path,
@@ -21,7 +18,6 @@ data_yaml = {
     'names': classes
 }
 
-# Save yaml
 with open("data.yaml", "w") as f:
     yaml.dump(data_yaml, f, default_flow_style=False)
 
